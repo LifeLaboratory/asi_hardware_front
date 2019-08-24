@@ -1,5 +1,54 @@
+<script>
+    import Api from '../utils/Api';
+    import store from '../store'
+    import LunchPending from "../components/lunch/LunchPending";
+    import LunchStatus from "../enums/LunchStatus";
+    import Lunch from "../models/Lunch";
+    import Mocks from "../utils/Mocks";
+
+    export default {
+        name: 'Lunch',
+        components: {
+            LunchPending
+        },
+        data: () => {
+            return {
+                lunchStatus: LunchStatus
+            }
+        },
+        mounted: () => {
+            setTimeout(() => {
+                console.log('1')
+                store.commit('setLunch', Mocks.approvedLunch)
+            }, 3000)
+        },
+        computed: {
+            lunch() {
+                return this.$store.state.lunch
+            }
+        },
+        methods: {
+            onClick: async () => {
+                const lunch = await Api.createLunch(Mocks.pendingLunch)
+                store.commit('setLunch', lunch)
+            }
+        }
+    }
+</script>
 <template>
-  <div class="about">
-    <h1>This is an lunch page</h1>
-  </div>
+    <div class="search">
+        <div v-if="lunch">
+            <div v-if="lunch.status === lunchStatus.pending">
+                Lunch is pending
+            </div>
+            <div v-if="lunch.status === lunchStatus.approved">
+                Lunch approved
+            </div>
+        </div>
+        <div v-if="!lunch">
+            <div>
+                <button v-on:click="onClick()" style="width:700px">Search</button>
+            </div>
+        </div>
+    </div>
 </template>
