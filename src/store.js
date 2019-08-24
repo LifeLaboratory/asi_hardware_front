@@ -5,10 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-
+    lunch: null
   },
   mutations: {
-
+    setLunch (state, lunch) {
+      state.lunch = lunch
+    }
   },
   actions: {
 
