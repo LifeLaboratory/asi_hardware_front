@@ -1,0 +1,137 @@
+openapi: 3.0.0
+info:
+  description: |
+    Our api
+  version: "1.0.0"
+  title: ASI-Hack-hardware
+tags:
+  - name: lunch
+    description: Lunch session informnation
+paths:
+  /lunch:
+    post:
+      tags:
+        - lunch
+      summary: Creates request for the new lunch
+      operationId: addLunch
+      parameters:
+          - name: user_id
+            in: header
+            required: true
+            schema:
+              type: string
+      responses:
+        '200':
+          description: &HTTP_200 Succesful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lunch'
+        '500':
+          description: &HTTP_500 Internal server error
+    get:
+      tags:
+        - lunch
+      summary: Get active lunch
+      operationId: getActiveLunch
+      parameters:
+          - name: user_id
+            in: header
+            required: true
+            schema:
+              type: string
+      responses:
+        '200':
+          description: *HTTP_200
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lunch'
+        '404':
+          description: No active lunch session
+        '500':
+          description: *HTTP_500
+  /lunch/all:
+    get:
+      tags:
+        - lunch
+      summary: Get all lunches
+      description: >-
+        Return all lunches including history
+      operationId: getAllLunches
+      parameters:
+          - name: user_id
+            in: header
+            required: true
+            schema:
+              type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lunch'
+        '404':
+          description: No lunch sessions found
+        '500':
+          description: *HTTP_500
+components:
+  schemas:
+    Lunch:
+      type: object
+      required:
+        - status
+        - person
+      properties:
+        person:
+          $ref: '#/components/schemas/User'
+        connectionPerson:
+          $ref: '#/components/schemas/User'
+        status:
+          type: string
+          description: Lunch Status
+          enum:
+            - pending
+            - approved
+            - declined
+            - finished
+        dateMatched:
+          type: string
+          format: date-time
+        dateFinished:
+          type: string
+          format: date-time
+    User:
+      type: object
+      required:
+        - id
+        - firstName
+        - lastName
+        - role
+        - city
+        - phone
+        - birthDate
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        role:
+          type: string
+        city:
+          type: string
+        phone:
+          type: string
+        vk:
+          type: string
+        email:
+          type: string
+        birthDate:
+          type: string
+          format: date-time
