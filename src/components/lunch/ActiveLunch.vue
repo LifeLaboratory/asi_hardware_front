@@ -12,7 +12,7 @@
         <button v-on:click="sendRes(true)">Встретились</button>
         <button v-on:click="sendRes(false)">Не Встретились</button>
       </div>
-    </div>
+    </div> 
   </div>
 </template>
 
