@@ -1,0 +1,16 @@
+.button, button {
+  text-align: center;
+  border-radius: 4px;
+  font-size: 14px;
+  letter-spacing: 1.2px;
+  background-color: #e2eaf3;
+  border: 1px solid #979ea7;
+  padding: 10px 40px;
+  font-weight: 300;
+  transition: background-color .25s;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1); }
+  .button:hover, button:hover {
+    background-color: #d7dfe8;
+    cursor: pointer; }
+
+/*# sourceMappingURL=button.css.map */

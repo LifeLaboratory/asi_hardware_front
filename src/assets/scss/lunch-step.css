@@ -1,0 +1,21 @@
+@keyframes text {
+  0% {
+    opacity: .2; }
+  100% {
+    opacity: 1; } }
+.lunch-step.step-0 {
+  margin-top: 80px;
+  text-align: center; }
+  .lunch-step.step-0 button {
+    margin: 50px auto 0; }
+.lunch-step__introduction {
+  height: 154px;
+  overflow: hidden;
+  max-width: 750px;
+  width: 100%;
+  margin: 0 auto;
+  letter-spacing: 1.2px;
+  text-align: center;
+  animation: text .3s  ease-in-out; }
+
+/*# sourceMappingURL=lunch-step.css.map */

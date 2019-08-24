@@ -1,0 +1,8 @@
+@import "mixins";
+
+.page {
+  background: url(../img/background.png) top left;
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding: 150px 30px 0;
+}

@@ -1,0 +1,24 @@
+@import "mixins";
+
+.header-menu {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    font-size: 20px;
+    color: black;
+    margin-right: 40px;
+    text-decoration: none;
+    height: 100%;
+    align-self: center;
+    display: block;
+
+    &:hover {
+      background-color: rgba(112, 149, 194, 0.05);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
