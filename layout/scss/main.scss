@@ -1,0 +1,21 @@
+@import "mixins";
+@import "page";
+@import "header";
+@import "header-user";
+@import "header-menu";
+@import "lunch-step";
+@import "button";
+
+html, body, * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
