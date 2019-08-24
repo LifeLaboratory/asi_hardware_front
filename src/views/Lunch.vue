@@ -3,16 +3,24 @@
     import store from '../store'
     import LunchPending from "../components/lunch/LunchPending";
     import LunchStatus from "../enums/LunchStatus";
+    import Lunch from "../models/Lunch";
+    import Mocks from "../utils/Mocks";
 
     export default {
         name: 'Lunch',
         components: {
             LunchPending
         },
-        data : () =>{
-          return {
-            lunchStatus: LunchStatus
-          }
+        data: () => {
+            return {
+                lunchStatus: LunchStatus
+            }
+        },
+        mounted: () => {
+            setTimeout(() => {
+                console.log('1')
+                store.commit('setLunch', Mocks.approvedLunch)
+            }, 3000)
         },
         computed: {
             lunch() {
@@ -21,7 +29,7 @@
         },
         methods: {
             onClick: async () => {
-                const lunch = await Api.createLunch()
+                const lunch = await Api.createLunch(Mocks.pendingLunch)
                 store.commit('setLunch', lunch)
             }
         }
