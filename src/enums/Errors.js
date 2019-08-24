@@ -1,0 +1,6 @@
+const Errors = {
+        "API_INTERNAL_SERVER_ERROR":"API_INTERNAL_SERVER_ERROR",
+        "API_UNKNOWN_STATUS_CODE":"API_UNKNOWN_STATUS_CODE",
+}
+
+export default Errors

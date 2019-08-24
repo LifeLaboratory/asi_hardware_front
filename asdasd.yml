@@ -7,6 +7,11 @@ info:
 tags:
   - name: lunch
     description: Lunch session informnation
+  - name: user
+    description: User (profile)
+servers:
+  - url: http://172.16.27.7:8080
+    description: Production server (uses live data)
 paths:
   /lunch:
     post:
@@ -76,6 +81,31 @@ paths:
                   $ref: '#/components/schemas/Lunch'
         '404':
           description: No lunch sessions found
+        '500':
+          description: *HTTP_500
+  /user/{user_id}:
+    get:
+      tags:
+        - user
+      summary: Get user profile
+      description: >-
+        Return user info
+      operationId: getProfile
+      parameters:
+        - in: path
+          name: user_id
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: User not found
         '500':
           description: *HTTP_500
 components:

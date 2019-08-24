@@ -17,57 +17,18 @@
 </template>
 
 <script>
-import api from '../cfg.js'
-import store from '../../store'
+
 export default {
   data () {
     return {
-        profileData: {
-            'photo': 'https://i.ya-webdesign.com/images/steve-transparent-minecraft-eye-16.png',
-            'first_name':'Фамилия',
-            'last_name': 'Имя',
-            'about': 'О мне и т.д.',
-            'city': 'Новосибирск'
-            },
-
-        data: {
-            'userId':'0',
-            'status':status
-        }
     }
   },
   created () {
-  //  this.fetchProfile()
   },
-  watch: {
-
+  mounted: () => {
+    console.log('mounted')
   },
-
   methods: {
-    sendRes (status) {
-        fetch('', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(status),
-        })
-        .then(function(response) {response.json()})
-        .catch(alert('Ошибка отправки'))
-        
-    },
-
-    fetchProfile () {
-        fetch(api.url + '1')
-        .then(function(response) {
-            response.json()
-        })
-        .then(function(data) {
-            this.profileData = data 
-            store.dispatch('SearchState', 'kek')
-        })
-        .catch( )
-    }
   }
 }
 
