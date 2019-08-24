@@ -17,10 +17,8 @@
             }
         },
         mounted: () => {
-            setTimeout(() => {
-                console.log('1')
-                store.commit('setLunch', Mocks.approvedLunch)
-            }, 3000)
+            Api.getProfile(1).then((user)=> store.commit('setUser', user)).catch(e => console.error(e))
+            Api.getActiveLunch().then((lunch)=> store.commit('setLunch', lunch)).catch(e => console.error(e))
         },
         computed: {
             lunch() {
@@ -29,7 +27,7 @@
         },
         methods: {
             onClick: async () => {
-                const lunch = await Api.createLunch(Mocks.pendingLunch)
+                const lunch = await Api.createLunch()
                 store.commit('setLunch', lunch)
             }
         }
@@ -42,7 +40,7 @@
                 Lunch is pending
             </div>
             <div v-if="lunch.status === lunchStatus.approved">
-                Lunch approved
+                <ActiveLunch lunch="lunch"/>
             </div>
         </div>
         <div v-if="!lunch">
