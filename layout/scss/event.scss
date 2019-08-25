@@ -1,0 +1,49 @@
+@import "mixins";
+
+.event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__photo {
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__info-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 30px;
+  }
+
+  &__info {
+    font-size: 16px;
+    max-width: 70%;
+
+    span {
+      display: block;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__info-description {
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+  &__limit {
+    margin-bottom: 15px;
+
+  }
+
+  &__limit-count {
+    font-weight: 600;
+  }
+}
