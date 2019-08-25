@@ -5,6 +5,9 @@
 @import "header-menu";
 @import "lunch-step";
 @import "button";
+@import "event-list";
+@import "event-list-item";
+@import "event";
 
 html, body, * {
   margin: 0;
@@ -16,6 +19,10 @@ html, body, * {
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 .hidden {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.disabled {
+  display: none !important;
 }

@@ -2,7 +2,7 @@
 
 .header {
   position: fixed;
-  top: 0ss s;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -10,6 +10,7 @@
   height: 100px;
   background: rgba(255,255,255,.75);
   padding: 0 65px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
 
   &__logo { 
     height: 66px;
