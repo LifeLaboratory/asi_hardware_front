@@ -162,6 +162,10 @@
   font-weight: 300;
   transition: background-color .25s, color .25s;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1); }
+  .button--disabled, button--disabled {
+    background-color: #f7f7f7 !important;
+    cursor: auto !important;
+    color: #7b7b7b !important; }
   .button:hover, button:hover {
     background-color: #d7dfe8;
     cursor: pointer; }
