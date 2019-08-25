@@ -5,15 +5,46 @@
   border-radius: 4px;
   font-size: 14px;
   letter-spacing: 1.2px;
-  background-color: #e2eaf3;
+  background-color: rgba(226, 234, 243, 0.38);
   border: 1px solid #979ea7;
   padding: 10px 40px;
   font-weight: 300;
-  transition: background-color .25s;
+  transition: background-color .25s, color .25s;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
     background-color: #d7dfe8;
     cursor: pointer;
   }
-} 
+
+  &--green {
+    background-color: $green-color;
+    color: #ffffff;
+
+    &:hover {
+      background-color: $green-color-hover;
+    }
+  }
+
+  &--green-light {
+    &:hover {
+      background-color: $green-color;
+    }
+  }
+
+  &--red {
+    background-color: $red-color;
+    color: #ffffff;
+
+    &:hover {
+      background-color: $red-color-hover;
+    }
+  }
+
+  &--red-light {
+    &:hover {
+      background-color: $red-color;
+      color: #fff;
+    }
+  }
+}

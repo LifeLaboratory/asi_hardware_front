@@ -3,14 +3,29 @@
   border-radius: 4px;
   font-size: 14px;
   letter-spacing: 1.2px;
-  background-color: #e2eaf3;
+  background-color: rgba(226, 234, 243, 0.38);
   border: 1px solid #979ea7;
   padding: 10px 40px;
   font-weight: 300;
-  transition: background-color .25s;
+  transition: background-color .25s, color .25s;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1); }
   .button:hover, button:hover {
     background-color: #d7dfe8;
     cursor: pointer; }
+  .button--green, button--green {
+    background-color: #beb868;
+    color: #ffffff; }
+    .button--green:hover, button--green:hover {
+      background-color: #b1ab5e; }
+  .button--green-light:hover, button--green-light:hover {
+    background-color: #beb868; }
+  .button--red, button--red {
+    background-color: #9e5165;
+    color: #ffffff; }
+    .button--red:hover, button--red:hover {
+      background-color: #944b5e; }
+  .button--red-light:hover, button--red-light:hover {
+    background-color: #9e5165;
+    color: #fff; }
 
 /*# sourceMappingURL=button.css.map */

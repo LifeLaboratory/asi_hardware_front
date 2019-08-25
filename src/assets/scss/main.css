@@ -92,6 +92,12 @@
     opacity: .2; }
   100% {
     opacity: 1; } }
+.lunch-step__buttons {
+  margin-top: 30px; }
+  .lunch-step__buttons button {
+    font-size: 16px; }
+  .lunch-step__buttons button:last-child {
+    margin-left: 10px; }
 .lunch-step.step-0, .lunch-step.step-1 {
   margin-top: 80px;
   text-align: center; }
@@ -109,6 +115,8 @@
   letter-spacing: 1.2px;
   text-align: center;
   animation: text .3s  ease-in-out; }
+.lunch-step__contact {
+  margin-top: 20px; }
 .lunch-step__image {
   margin-top: 30px;
   margin-bottom: 30px; }
@@ -130,6 +138,7 @@
   display: flex; }
   .lunch-step__profile img {
     width: 200px;
+    height: 200px;
     object-fit: contain; }
 .lunch-step__userInfo {
   margin-left: 30px;
@@ -140,22 +149,37 @@
   .lunch-step__userInfo p:first-child {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 40px; }
+    margin-bottom: 30px; }
 
 .button, button {
   text-align: center;
   border-radius: 4px;
   font-size: 14px;
   letter-spacing: 1.2px;
-  background-color: #e2eaf3;
+  background-color: rgba(226, 234, 243, 0.38);
   border: 1px solid #979ea7;
   padding: 10px 40px;
   font-weight: 300;
-  transition: background-color .25s;
+  transition: background-color .25s, color .25s;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1); }
   .button:hover, button:hover {
     background-color: #d7dfe8;
     cursor: pointer; }
+  .button--green, button--green {
+    background-color: #beb868;
+    color: #ffffff; }
+    .button--green:hover, button--green:hover {
+      background-color: #b1ab5e; }
+  .button--green-light:hover, button--green-light:hover {
+    background-color: #beb868; }
+  .button--red, button--red {
+    background-color: #9e5165;
+    color: #ffffff; }
+    .button--red:hover, button--red:hover {
+      background-color: #944b5e; }
+  .button--red-light:hover, button--red-light:hover {
+    background-color: #9e5165;
+    color: #fff; }
 
 html, body, * {
   margin: 0;
