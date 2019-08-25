@@ -1,4 +1,14 @@
-@import "mixins";
+@import "../../src/assets/scss/mixins";
+
+@keyframes radar-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @keyframes text {
   0% {
@@ -11,18 +21,35 @@
 }
 
 .lunch-step {
-
-  &.step-0 {
-    margin-top: 80px;
-    text-align: center;
-
+  
+  &__buttons {
+    margin-top: 30px;
     button {
-      margin: 50px auto 0;
+      font-size: 16px;
+    }
+    button:last-child {
+      margin-left: 10px;
     }
   }
 
+  &.step-0, &.step-1 {
+    margin-top: 80px;
+    text-align: center;
+    
+    button {
+      margin-top: 30px;
+    }
+    
+  &.step-2 {
+    margin-top: 60px;
+
+    button {
+      margin-top: 30px;
+    }
+  }
+  }
+
   &__introduction {
-    height: 154px;
     overflow: hidden;
     max-width: 750px;
     width: 100%;
@@ -30,6 +57,59 @@
     letter-spacing: 1.2px;
     text-align: center;
     animation: text .3s  ease-in-out;
-    line-height: 1.4;
+  }
+
+  &__contact{
+    margin-top: 20px;
+  }
+  &__image { 
+    margin-top: 30px;
+    margin-bottom: 30px; 
+
+    img {
+      animation: radar-rotation  2s infinite ease-in-out;
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  &__profileBg {
+    margin: auto;
+    width: 50%;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1); 
+    background: rgb(255, 255, 255);
+    padding: 30px;
+  }
+
+  &__about {
+    margin-top: 20px;
+    text-align: justify;
+    font-size: 13px;
+  }
+
+  &__profile {
+    display:flex;
+
+    img{
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+    }
+
+  }
+
+  &__userInfo {
+    margin-left: 30px;
+    text-align: left;
+    
+    p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    p:first-child {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
   }
 }
