@@ -16,4 +16,19 @@
     background-color: #d7dfe8;
     cursor: pointer;
   }
+
+  &--green {
+    background-color: $green-color;
+    color: #ffffff;
+
+    &:hover {
+      background-color: $green-color-hover;
+    }
+  }
+
+  &--green-light {
+    &:hover {
+      background-color: $green-color;
+    }
+  }
 }
