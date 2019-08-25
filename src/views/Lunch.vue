@@ -7,6 +7,7 @@
     import LunchStatus from "../enums/LunchStatus";
     import Lunch from "../models/Lunch";
     import Mocks from "../utils/Mocks";
+    import { async } from 'q';
 
     export default {
         name: 'Lunch',
@@ -21,18 +22,23 @@
             }
         },
         mounted: () => {
-            Api.getProfile(1).then((user)=> store.commit('setUser', user)).catch(e => console.error(e))
-            Api.getActiveLunch().then((lunch)=> {store.commit('setLunch', lunch)}).catch(e => console.error(e))
+            Api.getProfile(3).then((user) => store.commit('setUser', user)).catch(e => console.error(e))
+            Api.getActiveLunch().then((lunch) => {store.commit('setLunch', lunch)}).catch(e => console.error(e))
         },
         computed: {
             lunch() {
                 return this.$store.state.lunch
-            }
+            },
         },
         methods: {
             onClick: async () => {
                 const lunch = await Api.createLunch()
                 store.commit('setLunch', lunch)
+            },
+            
+            sendStatus: async (status) => {
+                await Api.putLuch(status)
+                store.commit('setLunch', null)
             }
         }
     }
@@ -46,11 +52,15 @@
             <div v-if="lunch.status === lunchStatus.pending">
                 <div class="lunch-step step-1">
                     <LunchPending />
-                    <button>Остановить поиск</button>
+                    <button v-on:click="sendStatus('declined')">Остановить поиск</button>
                 </div>
             </div>
             <div v-if="lunch.status === lunchStatus.approved">
                 <LunchProfile :lunch="lunch"/>
+                <div class="lunch-step__buttons"> 
+                    <button class="button--green" v-on:click="sendStatus('finished')"> встреча состоялась </button>
+                    <button class="button--red" v-on:click="sendStatus('declined')"> отклонить </button>
+                </div>
             </div>
         </div>
         <div v-if="!lunch">

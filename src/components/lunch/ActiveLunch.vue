@@ -1,5 +1,5 @@
 <template>
-<div>
+
   <div class="lunch-step__profileBg">
     <div class="lunch-step__profile">
       <img :src="lunch.connectionPerson.photo">
@@ -18,11 +18,6 @@
       <p>{{lunch.connectionPerson.description}}</p>
     </div> 
   </div>
-  <div class="lunch-step__buttons"> 
-    <button class="button--green"> встреча состоялась </button>
-    <button class="button--red"> отклонить </button>
-  </div>
-</div>
 </template>
 
 <script>

@@ -5,12 +5,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    lunch: null
+    lunch: null,
+    intersssval: -1
   },
   mutations: {
     setLunch (state, lunch) {
       console.log(lunch)
       state.lunch = lunch
+    },
+    setInterval (state, time) {
+      console.log(time)
+      state.interval = time
     },
     setUser (state, user) {
       console.log(user)

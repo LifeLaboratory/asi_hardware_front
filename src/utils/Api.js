@@ -2,12 +2,15 @@ import Lunch from "../models/Lunch";
 import Errors from "../enums/Errors";
 import User from "../models/User";
 
+
 export default class Api {
+
+
     static async createLunch() {
         const response = await fetch('http://172.16.27.7:8080/lunch', {
             method: "POST",
             headers: {
-                "user_id": 1,
+                "user_id": 3,
                 "Content-Type": "application/json"
             }
         })
@@ -27,7 +30,7 @@ export default class Api {
         const response = await fetch('http://172.16.27.7:8080/lunch/all', {
             headers: {user_id: 1}
         })
-
+ 
         switch (response.status) {
             case 200:
                 const lunches = await response.json()
@@ -39,9 +42,22 @@ export default class Api {
         }
     }
 
+    static async putLuch(status) {
+        await fetch('http://172.16.27.7:8080/lunch', {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                user_id: 3
+            },
+            body: JSON.stringify({'status': status})
+        })
+
+    }
+
     static async getActiveLunch() {
         const response = await fetch('http://172.16.27.7:8080/lunch', {
-            headers: {user_id: 1}
+            headers: {user_id: 3}
         })
 
         switch (response.status) {
