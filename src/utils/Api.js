@@ -11,7 +11,7 @@ export default class Api {
         const response = await fetch('http://172.16.27.7:8080/lunch', {
             method: "POST",
             headers: {
-                "user_id": 3,
+                "user_id": 1,
                 "Content-Type": "application/json"
             }
         })
@@ -43,13 +43,13 @@ export default class Api {
         }
     }
 
-    static async putLuch(status) {
+    static async setLunchStatus(status) {
         await fetch('http://172.16.27.7:8080/lunch', {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                user_id: 3
+                user_id: 1
             },
             body: JSON.stringify({'status': status})
         })
@@ -58,7 +58,7 @@ export default class Api {
 
     static async getActiveLunch() {
         const response = await fetch('http://172.16.27.7:8080/lunch', {
-            headers: {user_id: 3}
+            headers: {user_id: 1}
         })
 
         switch (response.status) {

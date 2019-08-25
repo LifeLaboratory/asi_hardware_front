@@ -1,12 +1,7 @@
 <script>
     import Api from '../utils/Api';
     import store from '../store'
-    import LunchProfile from '../components/lunch/ActiveLunch'
-    import LunchPending from "../components/lunch/LunchPending";
-    import LunchStart from "../components/lunch/StartSearch"
     import LunchStatus from "../enums/LunchStatus";
-    import Lunch from "../models/Lunch";
-    import Mocks from "../utils/Mocks";
 
     export default {
         name: 'Events',
@@ -50,7 +45,11 @@
                             <div class="event-list-item__org">Организатор: Агентства стратегических инициатив</div>
                         </div>
                     </div>
-                    <button class="button button--green">присоедениться</button>
+                    <div class="event-list-item__right-container">
+                        <div class="event-list-item__count">Идут человек:  <b>10 / 15</b></div>
+                        <button class="button button--green disabled" v-bind:class="{ 'disabled': event.j }">присоедениться</button>
+                        <button class="button button--red-light">не смогу пойти</button>
+                    </div>
                 </div>
 
             </div>

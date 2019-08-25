@@ -2,7 +2,6 @@
     import Api from '../utils/Api';
     import store from '../store'
     import LunchProfile from '../components/lunch/ActiveLunch'
-    import LunchPending from "../components/lunch/LunchPending";
     import LunchStart from "../components/lunch/StartSearch"
     import LunchStatus from "../enums/LunchStatus";
     import Lunch from "../models/Lunch";
@@ -11,7 +10,6 @@
     export default {
         name: 'Lunch',
         components: {
-            LunchPending,
             LunchStart,
             LunchProfile
         },

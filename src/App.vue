@@ -9,10 +9,15 @@
 
 <script>
   import Header from '@/components/Header'
-   export default {
+  import store from './store'
+  import Api from './utils/Api';
+  export default {
         components: {
             Header
         },
+     mounted() {
+       Api.getProfile(1).then((user) => store.commit('setUser', user)).catch(e => console.error(e))
+     }
    }
 </script>
 <style>

@@ -7,7 +7,6 @@
                 <router-link to="/events" class="header-menu__item">События</router-link>
                 <router-link to="/lunch" class="header-menu__item">Ланч</router-link>
             </div>
-
             <div class="header-user header__user">
                 <div class="header-user__name">Сергей Мавроди</div>
                 <div class="header-user__avatar">
