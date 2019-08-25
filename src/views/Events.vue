@@ -3,6 +3,10 @@
     import store from '../store'
     import LunchStatus from "../enums/LunchStatus";
 
+    const fetchEvents = () => {
+        Api.getEvents().then((events) => store.commit('setEvents', events)).catch(e => console.error(e))
+    }
+
     export default {
         name: 'Events',
         components: {},
@@ -12,7 +16,7 @@
             }
         },
         mounted: () => {
-            Api.getEvents().then((events) => store.commit('setEvents', events)).catch(e => console.error(e))
+            fetchEvents()
         },
         computed: {
             events() {
@@ -20,7 +24,13 @@
             }
         },
         methods: {
-            onClick: async () => {
+            handleExitEvent: async (eventId) => {
+                await Api.exitEvent(eventId)
+                fetchEvents()
+            },
+            handleJoinEvent: async (eventId) => {
+                await Api.joinEvent(eventId)
+                fetchEvents()
             }
         }
     }
@@ -46,9 +56,9 @@
                         </div>
                     </div>
                     <div class="event-list-item__right-container">
-                        <div class="event-list-item__count">Идут человек:  <b>10 / 15</b></div>
-                        <button class="button button--green disabled" v-bind:class="{ 'disabled': event.j }">присоедениться</button>
-                        <button class="button button--red-light">не смогу пойти</button>
+                        <div class="event-list-item__count">Идут человек:  <b>{{event.countPerson}} / {{event.maxPerson}}</b></div>
+                        <button class="button button--green" v-on:click="handleJoinEvent(event.id)" v-bind:class="{ 'disabled': event.joined }">присоедениться</button>
+                        <button class="button button--red-light" v-on:click="handleExitEvent(event.id)" v-bind:class="{'disabled':  !event.joined}">не пойду</button>
                     </div>
                 </div>
 
