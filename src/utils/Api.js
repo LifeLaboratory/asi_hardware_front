@@ -6,6 +6,25 @@ import Event from "../models/Event";
 
 export default class Api {
 
+    static async login(login, password) {
+        const response = await fetch('http://172.16.27.7:8080/auth', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({login, password})
+        })
+
+        switch (response.status) {
+            case 200:
+                const json = await response.json()
+                return Number(json.id)
+            case 500:
+                throw new Error(Errors.API_INTERNAL_SERVER_ERROR)
+            default:
+                throw new Error(Errors.API_UNKNOWN_STATUS_CODE)
+        }
+    }
 
     static async createLunch() {
         const response = await fetch('http://172.16.27.7:8080/lunch', {
