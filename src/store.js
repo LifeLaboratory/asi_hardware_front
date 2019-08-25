@@ -5,16 +5,20 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    lunch: null
+    lunch: null,
+    user: null,
+    events: null
   },
   mutations: {
     setLunch (state, lunch) {
-      console.log(lunch)
       state.lunch = lunch
     },
     setUser (state, user) {
-      console.log(user)
       state.user = user
+    },
+    setEvents (state, events) {
+      console.log(events)
+      state.events = events
     }
   },
   actions: {
