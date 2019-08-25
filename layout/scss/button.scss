@@ -11,6 +11,10 @@
   font-weight: 300;
   transition: background-color .25s, color .25s;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  line-height: 28px;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
 
   &--disabled {
     background-color: #f7f7f7 !important;
