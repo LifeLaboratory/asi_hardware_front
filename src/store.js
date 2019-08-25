@@ -9,6 +9,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setLunch (state, lunch) {
+      console.log(lunch)
       state.lunch = lunch
     },
     setUser (state, user) {

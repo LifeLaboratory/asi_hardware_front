@@ -81,18 +81,22 @@
     .header-menu__item:last-child {
       margin-right: 0; }
 
+@keyframes radar-rotation {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 @keyframes text {
   0% {
     opacity: .2; }
   100% {
     opacity: 1; } }
-.lunch-step.step-0 {
+.lunch-step.step-0, .lunch-step.step-1, .lunch-step.step-2 {
   margin-top: 80px;
   text-align: center; }
-  .lunch-step.step-0 button {
-    margin: 50px auto 0; }
+  .lunch-step.step-0 button, .lunch-step.step-1 button, .lunch-step.step-2 button {
+    margin-top: 30px; }
 .lunch-step__introduction {
-  height: 154px;
   overflow: hidden;
   max-width: 750px;
   width: 100%;
@@ -100,6 +104,13 @@
   letter-spacing: 1.2px;
   text-align: center;
   animation: text .3s  ease-in-out; }
+.lunch-step__image {
+  margin-top: 30px;
+  margin-bottom: 30px; }
+  .lunch-step__image img {
+    animation: radar-rotation  2s infinite ease-in-out;
+    width: 70px;
+    height: 70px; }
 
 .button, button {
   text-align: center;

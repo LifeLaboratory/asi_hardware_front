@@ -1,7 +1,9 @@
 <script>
     import Api from '../utils/Api';
     import store from '../store'
+    import LunchProfile from '../components/lunch/ActiveLunch'
     import LunchPending from "../components/lunch/LunchPending";
+    import LunchStart from "../components/lunch/StartSearch"
     import LunchStatus from "../enums/LunchStatus";
     import Lunch from "../models/Lunch";
     import Mocks from "../utils/Mocks";
@@ -9,7 +11,9 @@
     export default {
         name: 'Lunch',
         components: {
-            LunchPending
+            LunchPending,
+            LunchStart,
+            LunchProfile
         },
         data: () => {
             return {
@@ -28,25 +32,37 @@
         methods: {
             onClick: async () => {
                 const lunch = await Api.createLunch()
-                store.commit('setLunch', lunch)
+                store.dispatch('setLunch', lunch)
             }
         }
     }
 </script>
 <template>
-    <div class="search">
+<div>
+    <Header />
+
+    <div class="page">
         <div v-if="lunch">
             <div v-if="lunch.status === lunchStatus.pending">
-                Lunch is pending
+                <div class="lunch-step step-1">
+                    <LunchPending />
+                    <button v-on:click="onClick()">Остановить поиск</button>
+                </div>
             </div>
             <div v-if="lunch.status === lunchStatus.approved">
-                <ActiveLunch lunch="lunch"/>
+                <LunchProfile lunch="lunch"/>
             </div>
         </div>
         <div v-if="!lunch">
-            <div>
-                <button v-on:click="onClick()" style="width:700px">Search</button>
+
+            <div class="lunch-step step-2">
+                <LunchProfile lunch="lunch"/>
             </div>
+            <!--<div class="lunch-step step-0">
+                <LunchStart />
+                <button v-on:click="onClick()">поиск</button>
+            </div>-->
         </div>
     </div>
+</div>
 </template>
