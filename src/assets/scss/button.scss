@@ -28,7 +28,7 @@
 
   &--green-light {
     &:hover {
-      background-color: $green-color;
+      background-color: $green-color-light;
     }
   }
 
@@ -43,8 +43,8 @@
 
   &--red-light {
     &:hover {
-      background-color: $red-color;
-      color: #fff;
+      background-color: $red-color-light;
+      //color: #fff;
     }
   }
 }

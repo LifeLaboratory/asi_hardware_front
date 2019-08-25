@@ -6,11 +6,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     lunch: null,
-    intersssval: -1
+    user: null,
+    events: null
   },
   mutations: {
     setLunch (state, lunch) {
-      console.log(lunch)
       state.lunch = lunch
     },
     setInterval (state, time) {
@@ -18,8 +18,11 @@ export default new Vuex.Store({
       state.interval = time
     },
     setUser (state, user) {
-      console.log(user)
       state.user = user
+    },
+    setEvents (state, events) {
+      console.log(events)
+      state.events = events
     }
   },
   actions: {
