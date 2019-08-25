@@ -1,0 +1,19 @@
+@import "mixins";
+
+.users-list {
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+
+  &__title {
+    border-bottom: 1px solid #d7e2ee;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 18px 30px;
+  }
+
+  &__item-wrapper {
+    text-decoration: none ;
+  }
+}

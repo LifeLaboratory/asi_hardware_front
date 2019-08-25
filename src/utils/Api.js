@@ -1,6 +1,7 @@
 import Lunch from "../models/Lunch";
 import Errors from "../enums/Errors";
 import User from "../models/User";
+import Event from "../models/Event";
 
 export default class Api {
     static async createLunch() {
@@ -17,9 +18,9 @@ export default class Api {
                 const json = await response.json()
                 return new Lunch(json)
             case 500:
-                throw new Error(Errors.API_UNKNOWN_STATUS_CODE)
-            default:
                 throw new Error(Errors.API_INTERNAL_SERVER_ERROR)
+            default:
+                throw new Error(Errors.API_UNKNOWN_STATUS_CODE)
         }
     }
 
@@ -33,9 +34,9 @@ export default class Api {
                 const lunches = await response.json()
                 return lunches.map((lunch) => (new Lunch(lunch)))
             case 500:
-                throw new Error(Errors.API_UNKNOWN_STATUS_CODE)
-            default:
                 throw new Error(Errors.API_INTERNAL_SERVER_ERROR)
+            default:
+                throw new Error(Errors.API_UNKNOWN_STATUS_CODE)
         }
     }
 
@@ -51,9 +52,9 @@ export default class Api {
             case 404:
                 return null
             case 500:
-                throw new Error(Errors.API_UNKNOWN_STATUS_CODE)
-            default:
                 throw new Error(Errors.API_INTERNAL_SERVER_ERROR)
+            default:
+                throw new Error(Errors.API_UNKNOWN_STATUS_CODE)
         }
     }
 
@@ -67,9 +68,25 @@ export default class Api {
             case 404:
                 return null
             case 500:
-                throw new Error(Errors.API_UNKNOWN_STATUS_CODE)
-            default:
                 throw new Error(Errors.API_INTERNAL_SERVER_ERROR)
+            default:
+                throw new Error(Errors.API_UNKNOWN_STATUS_CODE)
+        }
+    }
+
+    static async getEvents() {
+        const response = await fetch(`http://172.16.27.7:8080/event/all`, {
+            headers: {user_id: 1}
+        })
+
+        switch (response.status) {
+            case 200:
+                const events = await response.json()
+                return events.map(event => (new Event(event)))
+            case 500:
+                throw new Error(Errors.API_INTERNAL_SERVER_ERROR)
+            default:
+                throw new Error(Errors.API_UNKNOWN_STATUS_CODE)
         }
     }
 }

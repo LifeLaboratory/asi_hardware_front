@@ -4,8 +4,8 @@
             <div class="header-menu header__menu">
                 <a href="#" class="header__logo"><img src="../assets/img/logo.png" alt="logo"></a>
 
-                <a href="#" class="header-menu__item">События</a>
-                <a href="lunch" class="header-menu__item">Ланч</a>
+                <router-link to="/events" class="header-menu__item">События</router-link>
+                <router-link to="/lunch" class="header-menu__item">Ланч</router-link>
             </div>
 
             <div class="header-user header__user">
