@@ -100,7 +100,8 @@
   margin: 0 auto;
   letter-spacing: 1.2px;
   text-align: center;
-  animation: text .3s  ease-in-out; }
+  animation: text .3s  ease-in-out;
+  line-height: 1.4; }
 
 .button, button {
   text-align: center;
@@ -122,14 +123,13 @@
     .button--green:hover, button--green:hover {
       background-color: #b1ab5e; }
   .button--green-light:hover, button--green-light:hover {
-    background-color: #beb868; }
+    background-color: #c7d9b4; }
   .button--red, button--red {
     background-color: #9e5165; }
     .button--red:hover, button--red:hover {
       background-color: #944b5e; }
   .button--red-light:hover, button--red-light:hover {
-    background-color: #9e5165;
-    color: #fff; }
+    background-color: #c97086; }
 
 .event-list {
   background: #ffffff;
@@ -205,6 +205,70 @@
     margin-bottom: 15px; }
   .event__limit-count {
     font-weight: 600; }
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .intro__text {
+    overflow: hidden;
+    max-width: 750px;
+    width: 100%;
+    margin: 0 auto 30px;
+    letter-spacing: 1.2px;
+    text-align: center;
+    animation: text .3s  ease-in-out;
+    line-height: 1.4; }
+  .intro__img {
+    width: 155px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 60px; }
+  .intro__buttons-container button {
+    margin: 0 10px; }
+
+.authorize {
+  background-color: #ffffff;
+  width: 460px;
+  text-align: center;
+  margin: 0 auto;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1); }
+  .authorize form {
+    padding: 30px 0; }
+  .authorize__title {
+    text-align: center;
+    border-bottom: 1px solid #d7e2ee;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 18px 30px; }
+  .authorize__input-container {
+    padding: 0 30px;
+    margin-bottom: 20px;
+    position: relative; }
+    .authorize__input-container:after {
+      content: '';
+      width: 22px;
+      height: 100%;
+      display: block;
+      right: 40px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-position: center; }
+    .authorize__input-container--login:after {
+      background-image: url("../img/user.png"); }
+    .authorize__input-container--pass:after {
+      background-image: url("../img/lock.png"); }
+    .authorize__input-container input {
+      width: 100%;
+      background-color: transparent;
+      border: 1px solid #7da3d1;
+      line-height: 38px;
+      border-radius: 4px;
+      padding: 0 10px; }
 
 html, body, * {
   margin: 0;
