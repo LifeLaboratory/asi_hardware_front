@@ -1,8 +1,9 @@
 class Lunch {
 
-    constructor({person, connectionPerson, status, dateMatched, dateFinished}) {
+    constructor({person, connectionPersonId, status, dateMatched, dateFinished, email}) {
+        this.email = email
         this.person = person
-        this.connectionPerson = connectionPerson
+        this.connectionPerson = connectionPersonId
         this.status = status
         this.dateMatched = dateMatched
         this.dateFinished = dateFinished

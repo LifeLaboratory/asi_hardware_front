@@ -22,13 +22,21 @@
 
 .lunch-step {
 
-  &.step-0, &.step-1, &.step-2 {
+  &.step-0, &.step-1 {
     margin-top: 80px;
     text-align: center;
     
     button {
       margin-top: 30px;
     }
+    
+  &.step-2 {
+    margin-top: 60px;
+
+    button {
+      margin-top: 30px;
+    }
+  }
   }
 
   &__introduction {
@@ -49,6 +57,45 @@
       animation: radar-rotation  2s infinite ease-in-out;
       width: 70px;
       height: 70px;
+    }
+  }
+
+  &__profileBg {
+    margin: auto;
+    width: 50%;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1); 
+    background: rgb(255, 255, 255);
+    padding: 30px;
+  }
+
+  &__about {
+    margin-top: 20px;
+    text-align: justify;
+    font-size: 13px;
+  }
+
+  &__profile {
+    display:flex;
+
+    img{
+      width: 200px;
+      object-fit: contain;
+    }
+
+  }
+
+  &__userInfo {
+    margin-left: 30px;
+    text-align: left;
+    
+    p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    p:first-child {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 40px;
     }
   }
 }

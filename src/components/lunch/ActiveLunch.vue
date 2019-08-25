@@ -1,18 +1,39 @@
 <template>
-  <div>
+<div>
+  <div class="lunch-step__profileBg">
     <div class="lunch-step__profile">
-      <img src="@/assets/img/super_user.jpg">
-      Идет поиск собеседника
+      <img :src="lunch.connectionPerson.photo">
+      <div class="lunch-step__userInfo">
+        <div class="lunch-step__contact">
+          <p>{{lunch.connectionPerson.firstName}} {{lunch.connectionPerson.lastName}}</p>
+       
+          <p>{{lunch.connectionPerson.city}}</p>
+          <p>Тел.: {{lunch.connectionPerson.contacts.phone}}</p>
+          <p>mail: {{lunch.connectionPerson.contacts.email}}</p> 
+          <p>vk: {{lunch.connectionPerson.contacts.vk}}</p> 
+        </div>
+      </div>
+    </div>
+    <div class="lunch-step__about">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indЧ    
+ustry's standard dummy text ever since the 1500s, when an unknown printer
+ took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
     </div>
   </div>
+  <div class="">
+    <button> встреча состоялась </button>
+    <button> отклонить </button>
+  </div>
+</div>
 </template>
 
 <script>
 
 export default {
   data () {
-    return {
-    }
+  },
+  props: {
+    lunch: Object
   },
   created () {
   },

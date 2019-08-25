@@ -5,7 +5,7 @@
                 <a href="#" class="header__logo"><img src="../assets/img/logo.png" alt="logo"></a>
 
                 <a href="#" class="header-menu__item">События</a>
-                <a href="#" class="header-menu__item">Ланч</a>
+                <a href="lunch" class="header-menu__item">Ланч</a>
             </div>
 
             <div class="header-user header__user">
